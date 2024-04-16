@@ -11,6 +11,7 @@ function UserComponent() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [logoutError, setLogoutError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State for login status
+  const [isChecked, setIsChecked] = useState(false);
 
   const client = useApolloClient();
 
@@ -94,6 +95,17 @@ function UserComponent() {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
+              
+              <Form.Group controlId="formBasicCheckbox">
+              <Form.Check
+                type="checkbox"
+                label="Remember Me"
+                checked={isChecked}
+                onChange={(e) => setIsChecked(e.target.checked)}
+              />
+            </Form.Group>
+
+     
 
               {authError && <Alert variant="danger">{authError}</Alert>}
 
