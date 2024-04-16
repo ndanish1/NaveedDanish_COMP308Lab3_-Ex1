@@ -1,0 +1,45 @@
+
+#root {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #c95151;
+}
+
+.logo {
+  height: 8em;
+  padding: 2em;
+  will-change: transform, filter;
+  transition: transform 0.5s, filter 0.5s;
+}
+.logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 0.5em rgba(0, 0, 0, 0.3));
+}
+
+.card {
+  padding: 1.5em;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 2em;
+}
+
+.read-the-docs {
+  color: #555;
+  font-style: italic;
+  margin-top: 1em;
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+  .logo {
+    height: 6em;
+  }
+  .card {
+    padding: 1em;
+  }
+}
