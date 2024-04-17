@@ -1,0 +1,66 @@
+trigger:
+- Munish_Bug_Issue_4
+
+pool:
+  name: 'Default'
+
+stages:
+  - stage: Client
+    displayName: 'Client Build and Test'
+    jobs:
+      - job: BuildAndTest_Client
+        displayName: 'Build and Test Client'
+        steps:
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '14.x'
+            displayName: 'Install Node.js'
+
+          - script: |
+              cd C:\Semester_6\Emerging_Technologies\NaveedDanish_COMP308Lab3_ Ex1\NaveedDanish_COMP308Lab3_ Ex1\client\vitalsign-app
+              npm install
+              npm run build
+            displayName: 'Build Client'
+
+          - script: |
+              cd C:\Semester_6\Emerging_Technologies\NaveedDanish_COMP308Lab3_ Ex1\NaveedDanish_COMP308Lab3_ Ex1\client\vitalsign-app
+              npm install
+              # Add any client-specific test commands here
+            displayName: 'Run Client Tests'
+
+  - stage: Server
+    displayName: 'Server Build and Test'
+    jobs:
+      - job: BuildAndTest_Server
+        displayName: 'Build and Test Server'
+        steps:
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '14.x'
+            displayName: 'Install Node.js'
+
+          - script: |
+              cd C:\Semester_6\Emerging_Technologies\NaveedDanish_COMP308Lab3_ Ex1\NaveedDanish_COMP308Lab3_ Ex1\server
+              npm install
+              # Add any server-specific build commands here
+            displayName: 'Build Server'
+
+          - script: |
+              cd C:\Semester_6\Emerging_Technologies\NaveedDanish_COMP308Lab3_ Ex1\NaveedDanish_COMP308Lab3_ Ex1\server
+              npm install
+              # Add any server-specific test commands here
+            displayName: 'Run Server Tests'
+            
+  - stage: SonarQube
+    displayName: 'SonarQube Analysis'
+    jobs:
+      - job: SonarQubeAnalysis
+        displayName: 'Run SonarQube Analysis'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '14.x'
+            displayName: 'Install Node.js'
+      
