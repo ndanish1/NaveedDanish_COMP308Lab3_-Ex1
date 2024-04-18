@@ -53,28 +53,30 @@ stages:
               versionSpec: '14.x'
             displayName: 'Install Node.js'
 
+          - task: SonarQubePrepare@4
+            inputs:
+              SonarQube: 'Naveed'
+              scannerMode: 'CLI'
+              configMode: 'manual'
+              cliProjectKey: 'GroupProjectDevops_NaveedDanish_COMP308Lab3_-Ex1_AY7s_AwSaNNkVK58z1pc'
+              projectName: 'main'
+          - powershell: |
+              $params = "$env:SONARQUBE_SCANNER_PARAMS" -replace '"sonar.branch.name":"[\w/,-.]*"\,?'
+              Write-Host "##vso[task.setvariable variable=SONARQUBE_SCANNER_PARAMS]$params"
           - script: |
               cd C:\Semester_6\Emerging_Technologies\NaveedDanish_COMP308Lab3_ Ex1\NaveedDanish_COMP308Lab3_ Ex1\server
               npm install
               # Add any server-specific build commands here
             displayName: 'Build Server'
 
-          - script: |
-              cd C:\Semester_6\Emerging_Technologies\NaveedDanish_COMP308Lab3_ Ex1\NaveedDanish_COMP308Lab3_ Ex1\server
-              npm install
-              # Add any server-specific test commands here
-            displayName: 'Run Server Tests'
-
-  - stage: SonarQube
-    displayName: 'SonarQube Analysis'
-    jobs:
-      - job: SonarQubeAnalysis
-        displayName: 'Run SonarQube Analysis'
-        steps:
-          
           - task: SonarQubeAnalyze@4
         
 
           - task: SonarQubePublish@4
             inputs:
               pollingTimeoutSec: '300'
+          - script: |
+              cd C:\Semester_6\Emerging_Technologies\NaveedDanish_COMP308Lab3_ Ex1\NaveedDanish_COMP308Lab3_ Ex1\server
+              npm install
+              # Add any server-specific test commands here
+            displayName: 'Run Server Tests'
