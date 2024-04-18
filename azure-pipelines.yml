@@ -75,3 +75,65 @@ stages:
               npm install
               # Add any server-specific test commands here
             displayName: 'Run Server Tests'
+
+  - stage: Deliver
+    displayName: 'Deliver Stage'
+    jobs:
+      - job: Deliver
+        displayName: 'Deliver Artifact'
+        steps:
+          # Add steps for releasing your artifact
+          - script: echo "Releasing the artifact"
+
+  - stage: Deploy_to_Dev_Env
+    displayName: 'Deploy to Dev Env Stage'
+    jobs:
+      - deployment: Deploy_to_Dev
+        displayName: 'Deploy to Dev Environment'
+        environment: 'Dev'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                # Placeholder steps for deploying to Dev environment
+                - script: echo "Deploying to Dev environment"
+                - script: echo "Launching the deployed app in Dev environment"
+
+  - stage: Deploy_to_QAT_Env
+    displayName: 'Deploy to QAT Env Stage'
+    jobs:
+      - deployment: Deploy_to_QAT
+        displayName: 'Deploy to QAT Environment'
+        environment: 'QAT'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                # Placeholder steps for deploying to QAT environment
+                - script: echo "Deploying to QAT environment"
+
+  - stage: Deploy_to_Staging_Env
+    displayName: 'Deploy to Staging Env Stage'
+    jobs:
+      - deployment: Deploy_to_Staging
+        displayName: 'Deploy to Staging Environment'
+        environment: 'Staging'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                # Placeholder steps for deploying to Staging environment
+                - script: echo "Deploying to Staging environment"
+
+  - stage: Deploy_to_Production_Env
+    displayName: 'Deploy to Production Env Stage'
+    jobs:
+      - deployment: Deploy_to_Production
+        displayName: 'Deploy to Production Environment'
+        environment: 'Production'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                # Placeholder steps for deploying to Production environment
+                - script: echo "Deploying to Production environment"
