@@ -28,7 +28,12 @@ stages:
               npm install
               npm run build
             displayName: 'Build Client'
+          - task: SonarQubeAnalyze@4
+        
 
+          - task: SonarQubePublish@4
+            inputs:
+              pollingTimeoutSec: '300'
           - script: |
               cd C:\Semester_6\Emerging_Technologies\NaveedDanish_COMP308Lab3_ Ex1\NaveedDanish_COMP308Lab3_ Ex1\client\vitalsign-app
               npm install
