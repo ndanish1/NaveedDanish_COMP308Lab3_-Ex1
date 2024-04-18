@@ -64,13 +64,7 @@ stages:
       - job: SonarQubeAnalysis
         displayName: 'Run SonarQube Analysis'
         steps:
-          - task: SonarQubePrepare@4
-            inputs:
-              SonarQube: 'Naveed'
-              scannerMode: 'CLI'
-              configMode: 'manual'
-              cliProjectKey: 'GroupProjectDevops_NaveedDanish_COMP308Lab3_-Ex1_AY7s_AwSaNNkVK58z1pc'
-              cliProjectName: 'NaveedDanish_COMP308Lab3_-Ex1'
+          
           - task: SonarQubeAnalyze@4
         
 
