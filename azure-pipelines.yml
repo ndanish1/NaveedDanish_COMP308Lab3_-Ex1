@@ -22,6 +22,9 @@ stages:
               configMode: 'manual'
               cliProjectKey: 'GroupProjectDevops_NaveedDanish_COMP308Lab3_-Ex1_AY7s_AwSaNNkVK58z1pc'
               projectName: 'main'
+          - powershell: |
+              $params = "$env:SONARQUBE_SCANNER_PARAMS" -replace '"sonar.branch.name":"[\w/,-.]*"\,?'
+              Write-Host "##vso[task.setvariable variable=SONARQUBE_SCANNER_PARAMS]$params"
           - script: |
               cd C:\Semester_6\Emerging_Technologies\NaveedDanish_COMP308Lab3_ Ex1\NaveedDanish_COMP308Lab3_ Ex1\client\vitalsign-app
               npm install
