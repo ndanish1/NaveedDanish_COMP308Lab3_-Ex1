@@ -31,8 +31,6 @@ stages:
               npm run build
             displayName: 'Build Client'
           - task: SonarQubeAnalyze@4
-        
-
           - task: SonarQubePublish@4
             inputs:
               pollingTimeoutSec: '300'
@@ -68,10 +66,7 @@ stages:
               npm install
               # Add any server-specific build commands here
             displayName: 'Build Server'
-
           - task: SonarQubeAnalyze@4
-        
-
           - task: SonarQubePublish@4
             inputs:
               pollingTimeoutSec: '300'
