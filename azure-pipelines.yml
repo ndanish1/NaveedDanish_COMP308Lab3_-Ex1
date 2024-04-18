@@ -15,6 +15,13 @@ stages:
             inputs:
               versionSpec: '14.x'
             displayName: 'Install Node.js'
+          - task: SonarQubePrepare@4
+            inputs:
+              SonarQube: 'Naveed'
+              scannerMode: 'CLI'
+              configMode: 'manual'
+              cliProjectKey: 'GroupProjectDevops_NaveedDanish_COMP308Lab3_-Ex1_AY7s_AwSaNNkVK58z1pc'
+              cliProjectName: 'NaveedDanish_COMP308Lab3_-Ex1'
 
           - script: |
               cd C:\Semester_6\Emerging_Technologies\NaveedDanish_COMP308Lab3_ Ex1\NaveedDanish_COMP308Lab3_ Ex1\client\vitalsign-app
