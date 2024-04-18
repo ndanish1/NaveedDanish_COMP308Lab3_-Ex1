@@ -13,7 +13,7 @@ const VitalSign = () => {
 
   return (
     <div>
-      <Link to="/addVitalSign" className="btn btn-primary mb-3" style={{backgroundColor:"green", color:"#ffffff"}} >
+      <Link to="/addVitalSign" className="btn btn-primary mb-3" style={{backgroundColor:"blue", color:"#ffffff"}} >
         Add Vital Sign
       </Link>
       <h2 style={{color:"white"}}>Vital Signs</h2>

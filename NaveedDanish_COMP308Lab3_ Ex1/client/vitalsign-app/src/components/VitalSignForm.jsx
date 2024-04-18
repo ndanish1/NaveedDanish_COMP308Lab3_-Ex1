@@ -78,7 +78,7 @@ const VitalSignForm = () => {
             defaultValue={data && data.vitalSign.respiratoryRate}
           />
         </Form.Group>
-        <button type="submit" className="btn btn-primary mt-3" style={{backgroundColor:"green"}}>
+        <button type="submit" className="btn btn-primary mt-3" style={{backgroundColor:"blue"}}>
           Submit
         </button>
       </form>
