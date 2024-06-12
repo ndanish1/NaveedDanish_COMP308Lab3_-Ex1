@@ -19,6 +19,7 @@ function App() {
             <Route path="/" element={<VitalSign />} />
             <Route path="/addVitalSign" element={<VitalSignForm />} />
             <Route path="/edit/:id" element={<VitalSignForm />} />
+            <Route path="/update/:id" element={<VitalSignForm />} />
           </Routes>
         </ApolloProvider>
       </div>
